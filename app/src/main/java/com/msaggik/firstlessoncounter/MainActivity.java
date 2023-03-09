@@ -1,5 +1,6 @@
 package com.msaggik.firstlessoncounter;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -39,6 +40,21 @@ public class MainActivity extends AppCompatActivity {
             textCount.setText(Integer.toString(count));
         }
     };
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("count", count);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        count = savedInstanceState.getInt("count");
+        if(count>0) {
+            textCount.setText(Integer.toString(count));
+        }
+    }
 
     @Override
     protected void onStart() {
