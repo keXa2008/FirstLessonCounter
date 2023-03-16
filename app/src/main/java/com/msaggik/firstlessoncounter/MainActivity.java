@@ -41,12 +41,14 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    // сохранение состояния активности
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putInt("count", count);
     }
 
+    // восстановление состояния активности
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
